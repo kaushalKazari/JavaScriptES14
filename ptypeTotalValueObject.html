@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript GroupBy</title>
+  </head>
+  <body>
+    <script>
+      const arrObj = [
+        { name: "kaushal", title: "UI Developer", salary: 15000 },
+        { name: "Arjun Obrai", title: "Mern Stack Developer", salary: 18000 },
+        { name: "Yash Raj", title: "Doctor", salary: 30000 },
+        { name: "Divyansh", title: "Doctor", salary: 40000 },
+        { name: "Kajal Kumari", title: "UI Developer", salary: 15000 },
+        { name: "kishor", title: "UI Developer", salary: 15000 },
+      ];
+      console.log("arrObj --> ", arrObj);
+      const titleType = Object.groupBy(arrObj, ({ title }) => title);
+      console.log("titleType --> ", titleType);
+      console.log("UI Developer --> ", titleType["UI Developer"]);
+      const arr2 = titleType["UI Developer"];
+      const result = arr2.reduce((a, b) => {
+        return a.salary + b.salary;
+      });
+      console.log("result --> ", result);
+      const arr1 = [
+        { name: "kaushal", title: "UI Developer", salary: 15000 },
+        { name: "Kajal Kumari", title: "UI Developer", salary: 15000 },
+        { name: "kishor", title: "UI Developer", salary: 15000 },
+      ];
+      const result2 = arr1.reduce((a, b) => {
+        return a.salary + b.salary;
+      });
+      console.log("result2 --> ", result2);
+
+      const employee = [
+    { name: 'Sue', age: 25, title:'Front End Developer' },
+    { name: 'Joe', age: 30, title:'Front End Developer' },
+    { name: 'Frank', age: 25, title:'MernDeveloper' },
+    { name: 'kaushal', age: 35, title:'JavaDeveloper' },
+    { name: 'Rohan', age: 35, title:'DotNetDeveloper' },
+    { name: 'Rishu', age: 35, title:'MeanDeveloper' }
+]
+const titleTypes = Object.groupBy(employee, ({title}) => title)
+console.log(titleTypes.FrontEndDeveloper)
+const totalSum = titleTypes['Front End Developer'].reduce((a,b)=>{
+    return a.age + b.age
+})
+console.log('totalSum --> ', totalSum)
+      //   console.log('arr1.salary --> ', arr1.salary)
+    </script>
+  </body>
+</html>

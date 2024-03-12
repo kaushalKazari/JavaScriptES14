@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="orange">Orange</button>
+    <button id="green">Green</button>
+    <script>
+        // Ex1- Laxical scoping
+        function outer(){
+            let username = 'kaushal';
+            // console.log('Outer Secret',secret)
+            function inner(){
+                let secret = '123'
+                console.log('inner', username)
+            }
+            function innerTwo(){
+                console.log('innerTwo', username)
+                // console.log(secret)
+            }
+            inner()
+            innerTwo()
+        }
+        outer()
+        // console.log('Too Outer ', username);
+
+        // Ex.-2 Closer
+        function makeFunc(){
+            const name = 'Mozila'
+            function displayName(){
+                console.log(name)
+            }
+            return displayName;
+        }
+        const myFunc = makeFunc()
+        myFunc()
+    </script>
+    <script>
+        // document.getElementById('orange').addEventListener('click',()=>{
+        //     document.body.style.backgroundColor='orange'
+        // })
+        // document.getElementById('green').addEventListener('click',()=>{
+        //     document.body.style.backgroundColor='green'
+        // })
+        function clickHandler(color){
+            // document.body.style.backgroundColor=`${color}`
+            return function(){
+                document.body.style.backgroundColor=`${color}`
+            }
+        }
+        document.getElementById('orange').addEventListener('click', clickHandler('orange'))
+        document.getElementById('green').addEventListener('click', clickHandler('green'))
+    </script>
+</body>
+</html>

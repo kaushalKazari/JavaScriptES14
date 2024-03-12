@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const employee = [
+        { name: "Sue", age: 25, title: "Front End Developer" },
+        { name: "Joe", age: 30, title: "Front End Developer" },
+        { name: "Frank", age: 25, title: "Mern Developer" },
+        { name: "kaushal", age: 35, title: "Java Developer" },
+        { name: "Rohan", age: 35, title: "DotNet Developer" },
+        { name: "Rishu", age: 35, title: "Mean Developer" },
+      ];
+      const titleTypes = Object.groupBy(employee, ({ title }) => title);
+      console.log(titleTypes["Front End Developer"]);
+      const totalSum = titleTypes["Front End Developer"].reduce((a, b) => {
+        return a + b.age;
+      }, 0);
+      console.log(totalSum);
+    </script>
+  </body>
+</html>
